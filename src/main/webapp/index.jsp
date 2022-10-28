@@ -8,6 +8,10 @@
     msg = "안녕하삼";
     %>  
     
+    <!-- html주석 -->
+    <%-- jsp 주석--%>
+    <% // java 주석 // %>
+    
 <!DOCTYPE html>
 <html>
 <head>
