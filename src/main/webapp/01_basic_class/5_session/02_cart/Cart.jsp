@@ -4,22 +4,41 @@
 <%@ page import="java.util.*" %>
 <%@ page import="shop.cart.Goods" %> 
 <%
-	String id="";
-	String name ="";
-	int price=0;
+   String id="";
+   String name ="";
+   int price=0;
 
-	ArrayList<Goods> glist = null;
+   ArrayList<Goods> glist = null;
+ 
+   request.setCharacterEncoding("utf-8");
+   
+   // 1. Form의 값(hidden값) 넘겨받기 ( id, name, price )
+   id = request.getParameter("id");
+   name = request.getParameter("name");
+   price = Integer.valueOf(request.getParameter("price"));
+   
+   // 2. 세션의 cart 속성을 얻어온다. 
+   	//넣은적도없는데 찾아오랜다 일단 그럼 오브젝트형으로 일단 받아줌
+   Object cart = session.getAttribute("cart");
+   
+   // 3. 만일 null이면 ArrayList 객체 새로 생성하고 그렇지 않으면 ArrayList 변수(glist)에 지정
+ if(cart == null){ //넣은적이없으니 널이겠지? 널일때 어레이 리스트 객체를 생성한다
+		 //즉 장바구니 처음만들때 배열을 하나 만들어주는것이다
+      glist = new ArrayList<Goods>();
+   }
+   else{
+	   //카트에 뭐가 담겨있다면?
+      glist = (ArrayList<Goods>)cart; //카트를 형변환 해서 glist에 담는다
+   }
+   // 4. 1번의 값들을 Goods 객체로 생성후 ArrayList 에 추가
+   Goods g = new Goods(id, name, price);
+   glist.add(g);
+   //glist.add(new Goods(id, name, price)); 축약
 
-	request.setCharacterEncoding("utf-8");
-	
-	// 1. Form의 값(hidden값) 넘겨받기 ( id, name, price )
-	// 2. 세션의 cart 속성을 얻어온다. 
-	// 3. 만일 null이면 ArrayList 객체 새로 생성하고 그렇지 않으면 ArrayList 변수(glist)에 지정
-	// 4. 1번의 값들을 Goods 객체로 생성후 ArrayList 에 추가
-	// 5. 세션에 cart 라는 이름에 ArrayList를 저장
-
-%>		 
-		 
+   // 5. 세션에 cart 라는 이름에 ArrayList를 저장
+   session.setAttribute("cart", glist);
+%>       
+   
 <html> 
 <body bgcolor=white>
 <%= name %> 을 구입하셨습니다.
@@ -31,17 +50,18 @@
 <th>가격</th></tr>
 
 <%
-		int n = glist.size(); 
-		int sum = 0; 
-		for(int i=0; i < n; i++) { 
-			Goods goods = (Goods) glist.get(i); 
-			int gp = goods.getPrice(); 
-			sum += gp; 
+      int n = glist.size(); 
+      int sum = 0; 
+      
+      for(int i=0; i < n; i++) { 
+         Goods goods = (Goods) glist.get(i); 
+         int gp = goods.getPrice(); 
+         sum += gp; 
 %>
-			<tr><td align="center"> <%= goods.getName() %> </td>
-				<td align="right"> <%= gp %> </td></tr>
+         <tr><td align="center"> <%= goods.getName() %> </td>
+            <td align="right"> <%= gp %> </td></tr>
 <%
-		} 		 
+      }        
 %>
 
 <tr bgcolor="#e7a068"><td colspan="2" align="right"> 총액 : <%= sum  %></td></tr>
@@ -52,4 +72,5 @@
 [<a href="Buy.jsp">구입하기</a>]
 
 </body></html>
+
 

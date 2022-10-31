@@ -7,7 +7,7 @@
 <title> 서버 정보 </title>
 </head>
 <body>
-
+<!-- 10.31 시작 -->
 요청정보 프로토콜 = <%= request.getProtocol() %> <br>
 요청정보 전송방식 = <%= request.getMethod() %> <br>
 요청 URI = <%= request.getRequestURI() %> <br>

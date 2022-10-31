@@ -1,12 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%   
+ 	String userID ="";
+// 1. 클라이언트로부터 Cookie를 얻어옴 
+Cookie[] c = request.getCookies();
 
-<%	
-	// 1. 클라이언트로부터 Cookie를 얻어옴 
-	
-	// 2. 쿠키 이름 중에 "yourid"가 있다면 그 쿠키의 값을 출력
-	
+ // 2. 쿠키 이름 중에 "ID"가 있다면 그 쿠키의 값을 출력
+ for(int i = 0 ;c!=null && i<c.length; i++){
+	 if(c[i].getName().equals("ID")){
+		 userID = c[i].getValue();
+	 }
+ }
+
 %>
 
 <html>
@@ -14,6 +20,8 @@
 <body>	
 
 <h1>Cookie 정보 알아내기</h1>
+
+<%= userID %> 니미 접속중
 
 <h4>다음은 클라이언트 브라우저의 쿠키에서 얻어온 값 : </h4><br><br>
 

@@ -4,6 +4,7 @@
      <!-- 지금은 사용자가 클라이언트가 입력을해서 일로보냈음
    그럼 리퀘스트로 온거임  -->
 
+
 <%  String id = request.getParameter("User"); //내임명 들어와야함
 	String pw = request.getParameter("Pass");
 	
