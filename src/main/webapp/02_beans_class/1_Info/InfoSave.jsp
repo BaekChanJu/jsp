@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
 */
 %>
 
-<jsp:useBean id="bean" class="info.infoBean">
+<jsp:useBean id="bean" class="info.infoBean" >
    <jsp:setProperty name="bean" property="name"/>
    <jsp:setProperty name="bean" property="id"/>
    
