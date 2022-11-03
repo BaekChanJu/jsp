@@ -23,6 +23,7 @@
 	 
 	//getMessageList 안에서 selectList를 호출하는데 selectList 함수가 저장된 디비에서 목록꺼내오게 만드는 함수임 거기sql잘 채워야함
 			//나중에 만든 인자가있는 selectList 함수 완성후 여기에 pNum 을 넣어주면 아래 페이지가 넘어가면서 3개 기준을 잘나온다
+			//3번의 부속
 	List <Message> mList = service.getMessageList(pNum);
 	
 	
@@ -49,6 +50,7 @@
 	<table border="1">
 	
 		<!-- Message 클래스의 저장된 그 변수들 : 리스트들  -->
+		<!-- 왼쪽에 자료형 객체 m 생성완료 셋게터 -->
 		<% for(Message m  : mList){ %>
 		<tr>	
 		<!-- getMessageId 시퀀스로 만든 자동 숫자가뜨고
