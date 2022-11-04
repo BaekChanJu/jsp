@@ -11,14 +11,43 @@
   
   <!--  서블릿파일 설정 -->
   <servlet>
-		<servlet-name>HelloServlet</servlet-name>
-		<servlet-class>HelloServlet</servlet-class>
+		<servlet-name>SimpleControl</servlet-name>
+		<servlet-class>mvc2.simple.SimpleControl</servlet-class>
   </servlet>
   
   
+  <servlet-mapping> 
+ 	 <servlet-name>SimpleControl</servlet-name>
+ 	 <url-pattern>/SimpleControl</url-pattern>
+ 	  <url-pattern>*.kosmo</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+   <!--  서블릿파일 설정2  GuestControl  -->
+  <servlet>
+  	<servlet-name>GuestControl</servlet-name>
+  	<servlet-class>mvc.guest.control.GuestControl</servlet-class>
+  </servlet>
+
   <servlet-mapping>
- 	 <servlet-name>HelloServlet</servlet-name>
- 	 <url-pattern>/HelloServlet</url-pattern>
+  	<servlet-name>GuestControl</servlet-name>
+  	<url-pattern>/GuestControl</url-pattern>
+  	<url-pattern>*.gc</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 1103에 했던 게시글 보더ex를 서블릿으로 수정해만들어보기 -->
+ <servlet>
+  	<servlet-name>BoardControl</servlet-name>
+  	<servlet-class>mvc.board.control.BoardControl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  	<servlet-name>BoardControl</servlet-name>
+  	<url-pattern>/BoardControl</url-pattern>
+  	<url-pattern>*.bc</url-pattern>
   </servlet-mapping>
   
 </web-app>

@@ -87,7 +87,7 @@ public class BoardDao
 	
 	         ps.executeUpdate();   	
 			
-			//
+			//2
 	         String sql = "SELECT seq_board.CURRVAL as seq From dual ";
 	         ps2 = con.prepareStatement(sql);
 	         rs = ps2.executeQuery();

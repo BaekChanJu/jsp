@@ -14,12 +14,12 @@ $(function(){
 		
 		// 폼태그 변수에 담고  폼태그의 submit() 호출
 		var frm = $('form[name="frm"]');
-		frm.submit();
+		
 		
 		// 폼태그의 action 속성을 'BoardSave.jsp' 이렇게 액션을 보내기가능 - 원래는 폼태그안에 액션을 썻었음
 			//BoardSave.jsp로 사용자 입력값을 넘긴다
 		frm.attr('action','BoardSave.jsp');
-	
+		frm.submit();
 		
 		
 		// 각 input 태그에 name 부여 이유는

@@ -22,6 +22,5 @@
 	
 %>
 
-<!-- 전페이지에서 전송버튼 누르면 다시 게시글 작성란으로 돌아가게 해주는거임 결국 페이지 모양이 안바뀜 깜빡하고 DB는 다녀오는느낌
-사용자는 그대로의 화면을 봄 -->
+<!-- sendRedirect로 파라미터로 seq 넘겨줌-->
 <%  response.sendRedirect("BoardView.jsp?seq="+seq);  %>

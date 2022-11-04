@@ -5,7 +5,7 @@
 	// 게시글번호 넘겨받아 전단에서 파라미터만들어서 넘겼음
 	String seq = request.getParameter("seq");
 
-	// 서비스의 함수를 호출하여 해당 BoardVO를 넘겨받는다. - 글번호 받아오는 서비스는 뭘까
+	// 서비스의 함수를 호출하여 해당 BoardVO를 넘겨받는다. 
  	ViewArticleService service = ViewArticleService.getInstance();
 	
 	//받은 글번호를  BoardVO vo에 넘겨준다 / 겟세터존
