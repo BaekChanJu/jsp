@@ -7,6 +7,10 @@
 	// 아까 다녀온 CommandList 함수안에 지정을 셋으로 했으니  getAttribute로 param을 받아온다
 		//근데 넘어온값은 오브젝트 이지만 리스트는 배열 그래서 배열로 형변환 해서 mList에 넣어줬다
 	List <Message> mList = (List <Message>)request.getAttribute("param");
+
+
+//1106일 페이징 추가하기
+
 	
 %>    
 <!DOCTYPE html>

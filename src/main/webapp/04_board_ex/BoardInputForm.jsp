@@ -15,6 +15,17 @@ $(function(){
 		// 폼태그 변수에 담고  폼태그의 submit() 호출
 		var frm = $('form[name="frm"]');
 		
+		//1106일요일 그냥 유효성검사 추가해좀
+		var writer = $('input[name="writer"]').val();
+		var title = $('input[name="title"]').val();
+		
+		if(writer == null ||writer==""){
+			alert('작성자를 반드시 기입해주세요');
+			return;
+		}else if(title ==null||title==""){
+			alert('비밀번호를 반드시 기입해주세요');
+			return;
+		}
 		
 		// 폼태그의 action 속성을 'BoardSave.jsp' 이렇게 액션을 보내기가능 - 원래는 폼태그안에 액션을 썻었음
 			//BoardSave.jsp로 사용자 입력값을 넘긴다

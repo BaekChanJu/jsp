@@ -37,17 +37,6 @@
   	<url-pattern>*.gc</url-pattern>
   </servlet-mapping>
   
-  
-  <!-- 1103에 했던 게시글 보더ex를 서블릿으로 수정해만들어보기 -->
- <servlet>
-  	<servlet-name>BoardControl</servlet-name>
-  	<servlet-class>mvc.board.control.BoardControl</servlet-class>
-  </servlet>
 
-  <servlet-mapping>
-  	<servlet-name>BoardControl</servlet-name>
-  	<url-pattern>/BoardControl</url-pattern>
-  	<url-pattern>*.bc</url-pattern>
-  </servlet-mapping>
   
 </web-app>

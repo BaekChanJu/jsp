@@ -11,7 +11,7 @@ import mvc.guest.model.MessageException;
 
 public class CommandList implements Command 
 {
-	private String next;
+	private String next;    
 
 	public CommandList( String _next ){
 		next = _next;

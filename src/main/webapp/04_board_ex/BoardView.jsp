@@ -9,6 +9,7 @@
  	ViewArticleService service = ViewArticleService.getInstance();
 	
 	//받은 글번호를  BoardVO vo에 넘겨준다 / 겟세터존
+		//왜냐 VO를 사용해야하거든 아래 값 나오게하려면
 		//getArticleById 함수안에 카운터알아내는함수랑 /  게시글번호에 의한 레코드(데이타) 검색하는 함수 셀렉트 아이디 2개가있음
 	BoardVO vo = service.getArticleById(seq);
 

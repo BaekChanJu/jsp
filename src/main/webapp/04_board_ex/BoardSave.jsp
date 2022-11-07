@@ -23,4 +23,6 @@
 %>
 
 <!-- sendRedirect로 파라미터로 seq 넘겨줌-->
+<!-- 즉 내용을 입력하고 누르면 사실 여기인 보더세이브라고 위에창에 url이 나와야하는데 
+리다이렉트를 함으로써 고객은 아래 () 에 넣은 보더뷰라고 읽게된다-->
 <%  response.sendRedirect("BoardView.jsp?seq="+seq);  %>

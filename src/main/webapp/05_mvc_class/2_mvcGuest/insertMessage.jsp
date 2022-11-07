@@ -16,7 +16,7 @@
 		//이제는 jsp방식으로 넘기면 안되!
 			//액션은 무저건 GuestControl이 담당하고있음!
 			//여기서 또 GuestControl 넘겼으니 GuestControl란으로 가볼까?! 
-		frmObj.action = "GuestControl?cmd=input-do";
+		frmObj.action = "GuestControl?cmd=input-do"; //즉 세이브메세지란으로 넘어갈거란뜻임
 		frmObj.submit(); 
 	}
 </script>

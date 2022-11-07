@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import guest.model.MessageException;
 import mvc.guest.command.Command;
 import mvc.guest.command.CommandDelete;
 import mvc.guest.command.CommandException;
 import mvc.guest.command.CommandInput;
-import mvc.guest.command.CommandList;
+import mvc.guest.command.CommandList; 
 import mvc.guest.command.CommandNull;
 
 /**
@@ -73,15 +74,25 @@ public class GuestControl extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (ServletException | IOException | MessageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (ServletException | IOException | MessageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, MessageException {
 		request.setCharacterEncoding("utf-8");
 
 		String nextPage = "";
@@ -101,7 +112,8 @@ public class GuestControl extends HttpServlet {
 				throw new CommandException("지정할 명령어가 존재하지 않음");
 			}
 
-			nextPage = cmd.execute( request, response  );
+			  nextPage = cmd.execute( request, response );
+
 
 		}catch( CommandException e ){
 			request.setAttribute("javax.servlet.jsp.jspException", e );

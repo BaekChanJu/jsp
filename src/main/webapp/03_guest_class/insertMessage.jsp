@@ -40,8 +40,10 @@ $(function(){
 	             return;
 	      }else if (pass == "" || pass == null){
 	    	  alert("비번이없다!");
+	    	   return;
 	      }else if(msg == ""||msg ==null){
 	    	  alert("메세지가 없다");
+	    	   return;
 	      } //end of if/else
 		
 		

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<configuration>
+<!-- db.properties 란이랑 연동을 해야 아래 드라이브 값을 가져오지! -->
+<properties resource='db.properties'></properties>
+
+<!-- 이거 설정하면 Vo에 저장한거랑 매퍼(sql)에 저장된걸랑 카멜케이스로 다 바꿔줘서 *로 가능해짐 -->
+<!-- <settings>
+<setting name="mapUnderscoreToCamelCase" value="true"/>
+</settings> -->
+
+<typeAliases>
+<!-- 이렇게 폴더 녀석자체를 별칭주기도 가능  지금 model.Comment(VO)란을 Comment라는 별칭을줘서 사용하도록한것임-->
+ 	<typeAlias type="mybatis.guest.model.Comment" alias ='Comment'/>
+</typeAliases>
+
+ <environments default="development">
+ <environment id="development">
+ <transactionManager type="JDBC"/>
+ <dataSource type="POOLED">
+ <property name="driver" value="${driver}"/> <!-- 드라이버저장한걸 불러오기 -->
+ <property name="url" value="${url}"/>
+ <property name="username" value="${username}"/>
+ <property name="password" value="${password}"/>
+ </dataSource>
+ </environment>
+ </environments>
+ 
+ <mappers>
+ <mapper resource="mybatis/guest/mapper/CommentMapper.xml"/>  <!-- 우리의 매퍼로 연결 -->
+ 
+ </mappers>
+</configuration>

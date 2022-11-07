@@ -9,7 +9,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import board_ex.model.BoardException;
+import board_ex.model.BoardVO;
+
+
 public class MessageDao {
+	
+
 
 	// Single Pattern 
 	private static MessageDao instance;
@@ -225,4 +231,7 @@ public class MessageDao {
 			if( con  != null ) { try{ con.close(); } catch(SQLException ex){} }
 		}		
 	}
+	
+	
+	
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import mvc.guest.model.Message;
 import mvc.guest.model.MessageDao;
 import mvc.guest.model.MessageException;
-
+ 
 public class CommandInput implements Command {
 	private String next;
 

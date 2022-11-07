@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+ <!-- 이메퍼의 별칭 -->
+<mapper namespace="CommentMapper"> 
+
+<!-- 이 셀렉트를 사용하는별칭 / 결과는 내가만든 VO클래스에 저장 -->
+<!-- resultType="Comment" 이렇게 별칭 넣기도 가능하다 -->
+ <select id="selectComment" resultType="mybatis.guest.model.Comment"> 
+ select 
+  	comment_no AS commentNo,
+  	user_id AS userId,
+  	comment_content AS commentContent,
+  	reg_dat AS regDate
+ from comment_tab 
+ 
+ 
+ <!-- select *
+ from comment_tab -->
+ <!-- DB 컬럼명과 VO변수명이 다를시는 별칭처리하고
+ 	그렇지 않다면 설계시 DB컬럼명과 VO변수명을 동일하게 지정 -->
+ 	
+
+ </select> 
+ 
+ 
+ 
+ 
+ 
+ <!-- 해쉬맵에서 파라미터 던졌음  /마이바티즈에서는 소문자로 받으샘 -->
+ <!-- resultType 해쉬맵으로 받은 값을 Comment 클래스(VO) 에지정 -->
+ <select id="selectCommentByPK" parameterType="hashmap"
+ resultType="Comment">
+  	
+ 	<!-- 한개찾는 구문을 만들자 -->
+ 	
+ select   	
+ 	comment_no AS commentNo,
+  	user_id AS userId,
+  	comment_content AS commentContent,
+  	reg_dat AS regDate
+ from comment_tab
+ where comment_no =#{commentNo}
+ 
+ </select>
+ 
+ 
+ 
+ <insert id="insertComment" parameterType="mybatis.guest.model.Comment">
+ 
+ insert into comment_tab
+ 
+ VALUES(#{commentNo},#{userId},#{commentContent},sysdate)
+ </insert>
+ 
+ 
+ 
+ 
+ 
+ 
+ <delete id="deleteComment" parameterType="mybatis.guest.model.Comment">
+ DELETE FROM comment_tab
+ WHERE comment_no =#{commentNo}
+ 
+ 
+ 
+ 
+ </delete>
+ 
+</mapper>
